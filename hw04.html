@@ -1,0 +1,80 @@
+<html>
+  <head>
+    
+    <title>test test</title>
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+  </head>
+  <style>
+    body { margin: 0 0;}
+    body > div {
+      min-height: 100vh; 
+      float: left; clear: 
+      both; width: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    body > div:nth-child(1) { 
+      background: url('http://images.apple.com/v/iphone-se/a/images/overview/silver_iphone_design_large.png') #E91E63 no-repeat 10% center;
+      background-attachment: fixed;
+      transition: all .5s;
+    }
+    body > div:nth-child(2) {       
+      background: url('iphone.png') #8BC34A no-repeat 10% center;
+      background-attachment: fixed;
+      transition: all .5s;
+    
+    }
+    body > div:nth-child(3) { 
+      background: url('http://images.apple.com/v/iphone-se/a/images/overview/silver_iphone_design_large.png') #00BCD4 no-repeat 10% center;
+      background-attachment: fixed;
+      transition: all .5s;
+    }
+    body > div:nth-child(4) { background: #FF5722; }
+    
+    #test {
+      position: fixed;
+      left: 14%;
+      top: 26%;
+      transform: translateX(0) rotate(24deg) skewX(25deg);
+      transition: all .3s ease;
+      opacity: 0;
+    }
+    .p2.active #test {
+      opacity: 1;
+    }
+
+  </style>
+  <body>
+    
+    <div class="p1">1</div>
+    <div class="p2">
+      <div id="test">testtest testtest testtest</div>
+    </div>
+    <div class="p3">3</div>
+    <div>4</div>
+    
+
+
+
+
+
+
+
+
+    <script>
+
+    $(window).on('scroll', function() {
+      var dh = $(window).height()/4;
+      var dy = $(window).scrollTop();
+      dp = Math.floor(dy / dh);
+      $("body > div").removeClass('active').eq(dp).addClass('active');
+
+
+      $(".p1,.p2,.p3").css('background-position-y', (-dy/5) + "px");
+
+    });
+    </script>
+
+  </body>
+</html>
